@@ -1,0 +1,96 @@
+{% extends 'basic.html' %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+    {% block title %}
+    <title>Book Store-Contact</title>
+    {% endblock %}
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-frontend/page-contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:26:04 GMT -->
+{% block body %}
+
+<body>
+ 
+    <main class="main">
+        <div class="page-header breadcrumb-wrap">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/" rel="nofollow">Home</a>
+                    <span></span> Pages
+                    <span></span> Contact us
+                </div>
+            </div>
+        </div>
+        <section class="hero-2 bg-green">
+            <div class="hero-content">
+                <div class="container">
+                    <div class="text-center">
+                        <h4 class="text-brand mb-20">Get in touch</h4>
+                        <h1 class="mb-20 wow fadeIn animated font-xxl fw-900">
+                            We Are Always Here<br><span class="text-style-1">For You</span>
+                        </h1>
+                        <div class="col-xl-8 col-lg-10 m-auto">
+                            <div class="contact-from-area padding-20-row-col wow FadeInUp">
+                                <h3 class="mb-10 text-center">Drop Us a Line</h3>
+                                <form class="contact-form-style text-center" id="contact-form" action="/contact/" method="post">{% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="input-style mb-20">
+                                                <input name="name" placeholder="First Name" type="text" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="input-style mb-20">
+                                                <input name="email" placeholder="Your Email" type="email" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="input-style mb-20">
+                                                <input name="phone" placeholder="Your Phone" type="tel" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="input-style mb-20">
+                                                <input name="subject" placeholder="Subject" type="text" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="textarea-style mb-30">
+                                                <textarea name="message" placeholder="Message" required></textarea>
+                                            </div>
+                                            <button class="submit submit-auto-width" type="submit">Send message</button>
+                                        </div>
+                                        
+                                    </div>
+                                </form>
+                                <p class="form-messege"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-border pt-50 pb-50"style="text-align:center">
+            <div class="container">
+                <div id='map-panes' class="leaflet-map mb-50"></div>
+                <div class="row">
+                    <div class=""style="text-align:center">
+                        <h2 class="mb-15 text-brand">Meet Us</h2>
+                        <h5>205 North Michigan Avenue, Suite 810<br>
+                        Chicago, 60601, USA<br></h5>
+                        <h5>Phone: 999999999 <br></h5>
+                        <h5>Email:  sachindashora130@gmail.com<br></h5>
+                    </div>
+                 
+                </div>
+            </div>
+        </section>
+    
+    </main>
+   
+
+{% endblock %}
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-frontend/page-contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:26:06 GMT -->
+</html>

@@ -1,0 +1,321 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    {% block title %}
+    {% endblock %}
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="{% static 'image/x-icon' %}" href="{% static 'assets/imgs/log.png' %}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/test.css' %}">
+   
+    
+</head>
+<header class="header-area header-style-1 header-height-2">
+   
+    <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
+        <div class="container">
+            <div class="header-wrap">
+                <div class="logo logo-width-1">
+                    <a href="/"><img src="{% static 'assets/imgs/log.png' %}" alt="logo"></a>
+                </div>
+                <div class="header-right">
+                    <div class="search-style-2">
+                        <form action="{% url 'search' %}" method="post">{% csrf_token %}
+                            
+                            <input type="text" name="search" placeholder="Search for items...">
+                        </form>
+                    </div>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="header-action-right">
+                    <div class="header-action-2">
+                        
+                        <div class="header-action-icon-2">
+                            <a class="mini-cart-icon">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                </svg>
+                                
+                            </a>
+                            <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                
+                                <div class="shopping-cart-footer">
+                                    <div class="shopping-cart-total">
+                                        <h4>Name : <span>{{ user.username}}</span></h4>
+                                    </div>
+                                   
+                                </div>
+                                <div class="shopping-cart-footer">
+                                    <div class="shopping-cart-total">
+                                        <h4>Email : <span>{{ user.email}}</span></h4>
+                                    </div>
+                                    <div class="shopping-cart-button">
+                                        
+                                        <a href="/logout/">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="header-action-right">
+                    <div class="header-action-2">
+                        
+                        <div class="header-action-icon-2">
+                            <a class="mini-cart-icon" href="/login/">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                  </svg>
+                                  <p>Login<p>
+                                
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+    <div class="header-bottom header-bottom-bg-color sticky-bar">
+        <div class="container">
+            <div class="header-wrap header-space-between position-relative">
+                <div class="logo logo-width-1 d-block d-lg-none">
+                    <a href="index.html"><img src="{% static 'assets/imgs/log.png' %}" alt="logo"></a>
+                </div>
+                <div class="header-nav d-none d-lg-flex">
+                  
+                    <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
+                        <nav>
+                            <ul>
+                                <li><a class="active" href="/">Home</a>
+                                   
+                                </li>
+                                <li><a class="active" href="/shop/">Shop</a>
+                                </li>
+                                <li>
+                                    <a class="active" href="/about/">About</a>
+                                </li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="hotline d-none d-lg-block">
+
+                    <p><a href="/contact/"><i class="fi-rs-headset"></i><span>Contact Us</span></a></p>
+                    
+                </div>
+            
+
+           
+                <div class="header-action-right d-block d-lg-none">
+                    <div class="header-action-2">
+                        <div class="header-action-icon-2">
+                            
+                        </div>
+                        <div class="header-action-icon-2">
+                            
+                           
+                        </div>
+                        <div class="header-action-icon-2 d-block d-lg-none">
+                            <div class="burger-icon burger-icon-white">
+                                <span class="burger-icon-top"></span>
+                                <span class="burger-icon-mid"></span>
+                                <span class="burger-icon-bottom"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mobile-header-active mobile-header-wrapper-style">
+    <div class="mobile-header-wrapper-inner">
+        <div class="mobile-header-top">
+            <div class="mobile-header-logo">
+                <a href="index.html"><img src="{% static 'assets/imgs/log.png' %}" alt="logo"></a>
+            </div>
+            <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
+                <button class="close-style search-close">
+                    <i class="icon-top"></i>
+                    <i class="icon-bottom"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-header-content-area">
+            <div class="mobile-search search-style-3 mobile-header-border">
+                <form action="{% url 'search' %}" method="post">{% csrf_token %}
+                    <input type="text" name="search" placeholder="Search for items…">
+                    <button type="submit"><i class="fi-rs-search"></i></button>
+                </form>
+            </div>
+            <div class="mobile-menu-wrap mobile-header-border">
+                <div class="main-categori-wrap mobile-header-border">
+                    <a class="categori-button-active-2" href="#">
+                        <span class="fi-rs-apps"></span> Browse Categories
+                    </a>
+                    <div class="categori-dropdown-wrap categori-dropdown-active-small">
+                        
+                        <ul>
+                            {% for category in category %}
+                            <li><a href="/shop/?category={{category.id}}"><i class="evara-font-dress"></i>{{ category.Name }}</a></li>
+                            {% endfor %}
+                  
+                        </ul>
+                    </div>
+                </div>
+                <!-- mobile menu start -->
+                <nav>
+                    <ul class="mobile-menu">
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="/">Home</a>
+                           
+                        </li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop-grid-right.html">shop</a>
+                          
+                        </li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Mega menu</a>
+                            
+                        </li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog-category-fullwidth.html">Blog</a>
+                          
+                        </li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Pages</a>
+                           
+                        </li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
+                         
+                        </li>
+                    </ul>
+                </nav>
+                <!-- mobile menu end -->
+            </div>
+            <div class="mobile-header-info-wrap mobile-header-border">
+            
+                <div class="single-mobile-header-info " style = "margin-top:-450px  ">
+                    <a href="page-login-register.html">Log In / Sign Up </a>
+                </div>
+              
+            </div>
+           
+        </div>
+    </div>
+</div>
+{% block body %}
+
+{% endblock %}
+
+  <!-- Preloader Start -->
+  <div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="text-center">
+                <h5 class="mb-10">Loading Books</h5>
+                <div class="loader">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="main">
+    <section class="newsletter p-30 text-white wow fadeIn animated">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-md-3 mb-lg-0">
+                    <h4>"First, find out what your hero wants, then just follow him!"       - Ray Bradbury</h4>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    <section class="section-padding footer-mid">
+        <div class="container pt-15 pb-20">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="widget-about font-md mb-md-5 mb-lg-0">
+                        <div class="logo logo-width-1 wow fadeIn animated">
+                            <a href="/"><img src="{% static 'assets/imgs/log.png' %}" alt="logo"></a>
+                        </div>
+                        <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
+                        <p class="wow fadeIn animated">
+                            <strong>Address: </strong>2/193 RHB  colony goverdhan vikas udaipur,rajasthan
+                        </p>
+                        <p class="wow fadeIn animated">
+                            <strong>Phone: </strong>(+91) 88 2423 9892
+                        </p>
+                        <p class="wow fadeIn animated">
+                            <strong>Hours: </strong>10:00 - 18:00, Mon - Sat
+                        </p>
+                       
+                       
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h5 class="widget-title wow fadeIn animated">About</h5>
+                    <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Store</a></li>
+                        <li><a href="#">About Us</a></li>
+                        
+                       
+                        
+                        
+                    </ul>
+                </div>
+                <div class="col-lg-2  col-md-3">
+                    <h5 class="widget-title wow fadeIn animated">My Account</h5>
+                    <ul class="footer-list wow fadeIn animated">
+                        <li><a href="/login/">Sign In</a></li>
+                        <li><a href="/contact/">contact</a></li>
+                    </ul>
+                </div>
+              
+            </div>
+        </div>
+    </section>
+    
+</footer>
+
+
+    <!-- Vendor JS-->
+    <script src="{% static 'assets/js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-migrate-3.3.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/slick.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.syotimer.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/wow.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/magnific-popup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/waypoints.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/counterup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/images-loaded.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/scrollup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.vticker-min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.theia.sticky.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.elevatezoom.js' %}"></script>
+    <!-- Template  JS -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/shop.js' %}"></script>
+

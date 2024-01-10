@@ -1,0 +1,280 @@
+﻿{% extends 'basic.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    {% block title %}
+    <title>Book Store-Book</title>
+    {% endblock %}
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-frontend/shop-product-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:26:43 GMT -->
+{% block body %}
+
+<body>
+    <!-- Quick view -->
+    <div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">              
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>       
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12" style="height: 450px;">
+                            <div class="detail-gallery">
+                                <span class="zoom-icon"><i class="fi-rs-search"></i></span>
+
+                                <!-- MAIN SLIDES -->
+
+                                <div class="product-image-slider">
+
+                                    <figure class="border-radius-10">
+                                        <img src="{{ product.img.url }}" alt="product image" width="100%" style="min-height: 450px; max-height: 450px;">
+                                    </figure>
+                                    
+                                </div>
+                                
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="detail-info">
+                                <h3 class="title-detail mt-30">{{ product.Name }}</h3>
+                                
+                                <div class="product-detail-rating">
+                                    <div class="pro-details-brand">
+                                        <span> Author: <a href="shop-grid-right.html">{{product.Author_Name}}</a></span>
+                                        
+                                    </div>
+                                    <div class="product-price primary-color float-left">
+                                        <ins style="font-size:15px;"><span class="text-brand">₹{{product.Price}}</span></ins>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="bt-1 border-color-1 mt-15 mb-15"></div>
+                                <div class="short-desc mb-30">
+                                    <p class="font-sm"></div>
+                                
+                        
+                                
+                                <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+                                <div class="detail-extralink">
+                                    <form method="post">{% csrf_token %} 
+                                        <div class="form-group">
+                                            <input type="text" required name="name" placeholder=" name *">
+                                            <input type="hidden" name="book" value="{{ product.Name }}">
+                                            <input type="hidden" name="price" value="{{ product.Price }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" required name="email" placeholder="E-mail*">
+                                        </div>
+                                        
+                                       
+                                        <div class="form-group">
+                                            <input type="text" name="address" placeholder="Address *" required="">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="text" name="city" placeholder="City / Town *" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="state" placeholder="State / County *" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="zipcode" placeholder="Postcode / ZIP *" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" name="phone" placeholder="Phone *" pattern="[789][0-9]{9}" required >
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="button ">Place Order</button>
+                                        </div>
+                                    </form>
+                                   
+
+                                </div>
+                                <div class="product-extra-link8">
+                                    <form method="post">{% csrf_token %} 
+                                        <div class="form-group">
+                                            <input type="text" required name="name" placeholder=" name *">
+                                            <input type="hidden" name="book" value="{{ product.Name }}">
+                                            <input type="hidden" name="price" value="{{ product.Price }}">
+                                        </div>
+                                </div>
+                                
+                            </div>
+                            <!-- Detail Info -->
+                        </div>
+                    </div>
+                </div>        
+        </div>
+        </div>
+    </div>
+ 
+    <main class="main">
+        <div class="page-header breadcrumb-wrap">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/" rel="nofollow">Home</a>
+                    <span></span> Shop
+                    <span></span> {{ product.Name }}
+                </div>
+            </div>
+        </div>
+        <section class="mt-50 mb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product-detail accordion-detail">
+                            <div class="row mb-50">
+                                <div class="col-md-6 col-sm-12 col-xs-12" style="max-height:700px;">
+                                    <div class="detail-gallery">
+                                        <span class="zoom-icon"><i class="fi-rs-search"></i></span>
+                                        <!-- MAIN SLIDES -->
+                                        <div class="product-image-slider">
+                                            <figure class="border-radius-10">
+                                                <img src="{{ product.img.url }}" alt="product image" height="100%" width="100%">
+                                            </figure>
+                                         
+                                        </div>
+                                        <!-- THUMBNAILS -->
+                                        <div class="slider-nav-thumbnails pl-15 pr-15">
+                                          
+                                        </div>
+                                    </div>
+                                    <!-- End Gallery -->
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="detail-info">
+                                        <h2 class="title-detail">{{ product.Name }}</h2>
+                                      
+                                        <div class="product-detail-rating">
+                                            <div class="pro-details-brand">
+                                                <span> Author: <a href="shop-grid-right.html">{{product.Author_Name}}</a></span>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="clearfix product-price-cover">
+                                            <div class="product-price primary-color float-left">
+                                                <ins><span class="text-brand">₹{{product.Price}}</span></ins>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="bt-1 border-color-1 mt-15 mb-15"></div>
+                                        <div class="short-desc mb-30">
+                                            <p>{{product.desc}}</p>
+                                        </div>
+                                        <div class="product_sort_info font-xs mb-30">
+                                            <ul>
+                                                
+                                                <li class="mb-10"><i class="fi-rs-refresh mr-5"></i> 30 Day Return Policy</li>
+                                                <li><i class="fi-rs-credit-card mr-5"></i> Cash on Delivery available</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        
+                                        <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+                                        <div class="detail-extralink">
+                                            
+                                            <div class="product-extra-link2">
+                                                <button type="submit" class="button" data-bs-toggle="modal" data-bs-target="#quickViewModal">Buy Now</button>
+                                                
+                                            </div>
+                                            <div class="product-extra-link8">
+                                                <button type="submit" class="button" data-bs-toggle="modal" data-bs-target="#quickViewModal">View Book</button>
+                                                
+                                            </div>
+                                        </div>
+                                        <ul class="product-meta font-xs color-grey mt-50">
+                                            <li class="mb-5">Category: <a href="#">{{product.category}}</a></li>
+                                            <li class="mb-5">Tags: 
+                                                {% if product.top %}
+                                                <span class="hot">Hot</span>
+                                                {% endif %}
+                                        {% if product.tranding %} 
+                                        ,<span class="hot">Tranding</span>
+                                        {% endif %}
+                                        {% if product.populer %}
+                                        ,<span class="hot">Populer</span>
+                                        {% endif %}
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <!-- Detail Info -->
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:200px;">
+                                <div class="col-lg-10 m-auto entry-main-content">
+                                    <h2 class="section-title style-1 mb-30">Description</h2>
+                                    <div class="description mb-50">
+                                        <p>{{product.desc}}</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                   
+                            
+                                   
+                                </div>
+                            </div>
+                            <div class="row mt-60" >  
+                                <div class="col-12" style="margin-top:7%;">
+                                    <h3 class="section-title style-1 mb-30">Related products</h3>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row related-products">
+                                        {% for relatedproduct in relatedproduct %}
+                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                            <div class="product-cart-wrap small hover-up">
+                                                <div class="product-img-action-wrap">
+                                                    <div class="product-img product-img-zoom">
+                                                        <a href="/product/{{relatedproduct.id}}" tabindex="0">
+                                                            <img class="default-img" src="{{relatedproduct.img.url}}" alt="" width="100%" style="min-height: 320px; max-height: 320px;">
+                                                            <img class="hover-img" src="{{relatedproduct.img.url}}" alt="" width="100%" style="min-height: 320px; max-height: 320px;">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-action-1">
+                                                      </div>
+                                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                                        {% if relatedproduct.top %}
+                                                        <span class="hot">Hot</span>
+                                                        {% endif %}
+                                                {% if relatedproduct.tranding %} 
+                                                <span class="hot">Tranding</span>
+                                                {% endif %}
+                                                {% if relatedproduct.populer %}
+                                                <span class="hot">Populer</span>
+                                                {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="product-content-wrap">
+                                                    <h2><a href="/product/{{relatedproduct.id}}" tabindex="0">{{relatedproduct.Name|slice:"0:25"}}</a></h2>
+                                                    
+                                                    <div class="product-price">
+                                                        <span>₹ {{relatedproduct.Price}}</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+   
+    
+{% endblock %}
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-frontend/shop-product-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:26:43 GMT -->
+</html>
